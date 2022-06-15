@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{thymeleafe/ind}" method="post">
+    <input type="text" th:name="participant"/>
+    <input type="submit"/>
+</form>
+
+<form th:action="@{thymeleafe/ind}">
+    <input type="text" th:name="participant"/>
+    <select th:name="country">
+        <option value="de">Germany</option>
+        <option value="nl">Netherlands</option>
+        <option value="pl">Poland</option>
+        <option value="lv">Latvia</option>
+    </select>
+</form>
+
+<form th:action="@{/}">
+    <button type="submit" th:name="action" th:value="in">check-in</button>
+    <button type="submit" th:name="action" th:value="out">check-out</button>
+</form>
+</body>
+</html>

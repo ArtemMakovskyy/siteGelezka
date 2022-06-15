@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Gelezka</title>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<H2>Манипуляции с компьютером</H2>
+<a href="/comp/create_new">Создать новую комплектацию</a><br>
+<a href="/comp/show_all">Просмотреть все комплектации</a><br>
+<a href="/comp/create_pc_parts">Комплектующие</a><br>
+<form th:action="@{/comp/findFromCpu}" th:method="post">
+    <label for="find_cpu">Найти по процессору:</label>
+    <input type="text" name="cpu_find" placeholder="какой процессор" id="find_cpu">
+    <button type="submit">Показать</button>
+</form>
+
+<form th:action="@{/comp/findFromGpu}"  th:method="post">
+    <label for="find_gpu">Найти по видеокарте:</label>
+    <input type="text" name="gpu_find" placeholder="введите видеокарту" id="find_gpu">
+    <button type="submit">Показать</button>
+</form>
+
+<form th:action="@{/comp/findFromCode}" method="post">
+    Найти по коду : <input type="text" name="code" placeholder="введите код">
+    <button type="submit">Показать</button>
+</form>
+<form th:action="@{/comp/findFromAll}" method="post">
+    Найти: <input type="text" name="text" placeholder="поиск по всем полям">
+    <button type="submit">Показать</button>
+</form>
+
+<br>
+<a href="/comp/operations">Манипуляции с компьютером</a><br>
+<a href="/">Главная</a>
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

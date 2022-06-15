@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать вентилятор для процессора</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+<header th:insert="blocks/header::header"></header>
+
+<H3>Создать Memory</H3><br>
+
+<form th:action="@{/comp_parts/memory/create}" th:method="post">
+
+    <br>
+    <button type="submit" class="btn btn-info col-2">Добавить</button><br>
+</form>
+<br>
+
+<form th:method="get" th:action="@{/comp/create_pc_parts}">
+    <button type="submit" class="btn btn-primary btn-sm mb-3">Манипуляции с комплектующими</button>
+</form>
+    <form th:method="get" th:action="@{/comp_parts/memory/show}">
+        <button type="submit" class="btn btn-primary btn-sm mb-3">Список</button>
+    </form>
+<div th:insert="blocks/footer::footer"></div>
+</div>
+</body>
+</html>

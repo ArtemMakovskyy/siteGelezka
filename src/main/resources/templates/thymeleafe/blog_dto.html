@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>blog dto</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<main>
+    <form action="#" method="post" th:action="@{/articles/blog_dto}" th:object="${blog_dto}">
+
+        <input type="hidden" th:field="*{id}" id="blogId">
+
+        <br><input type="text" th:field="*{title}" placeholder="title">
+        <br>      <input type="text" th:field="*{category}"placeholder="category">
+        <br>    <textarea th:field="*{body}"placeholder="body"></textarea>
+    </form>
+
+</main>
+</body>
+</html>

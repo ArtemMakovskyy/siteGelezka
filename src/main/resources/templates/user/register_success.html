@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Gelezka</title>
+</head>
+<body>
+<div>
+    <h2>Registration Succeeded!</h2>
+    <span>Full name:</span><span th:text="${user.name}"></span><br/>
+    <span>E-mail:</span><span th:text="${user.email}"></span><br/>
+    <span>Password:</span><span th:text="${user.password}"></span><br/>
+    <span>Gender:</span><span th:text="${user.gender}"></span><br/>
+    <span>Profession:</span><span th:text="${user.profession}"></span><br/>
+    <span>Married?</span><span th:text="${user.married}"></span><br/>
+    <span>Note:</span><span th:text="${user.note}"></span><br/>
+</div>
+<br>
+<!--<div th:object="${user}">-->
+<!--    <h2>Registration Succeeded!</h2>-->
+<!--    <span>Full name:</span><span th:text="${name}"></span><br/>-->
+<!--    <span>E-mail:</span><span th:text="${email}"></span><br/>-->
+<!--    <span>Password:</span><span th:text="${password}"></span><br/>-->
+<!--    <span>Gender:</span><span th:text="${ugender}"></span><br/>-->
+<!--    <span>Profession:</span><span th:text="${profession}"></span><br/>-->
+<!--    <span>Married?</span><span th:text="${married}"></span><br/>-->
+<!--    <span>Note:</span><span th:text="${note}"></span><br/>-->
+<!--</div>-->
+</body>
+</html>

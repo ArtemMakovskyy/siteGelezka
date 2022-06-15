@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Gelezka</title>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+<H2>Создать новую комплектацию</H2>
+
+<div>
+    <form th:action="@{/comp/create_new}" th:method="post" th:object="${specification}">
+        <table border="0">
+            <tr>
+                <td><label for="funs">Вентилятор</label></td>
+                <td><input type="text" th:field="*{fun}" id="funs" placeholder="Вентилятор"></td>
+            </tr>
+            <tr>
+                <td><label for="cpu">Процессор</label></td>
+                <td><input type="text" th:field="*{cpu}" id="cpu" placeholder="Процессор"></td>
+            </tr>
+            <tr>
+                <td><label for="mb">Материнская плата</label></td>
+                <td><input type="text" th:field="*{motherBoard}" id="mb" placeholder="Материнская плата">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="memory">Память</label></td>
+                <td><input type="text" th:field="*{memory}" id="memory" placeholder="Память"></td>
+            </tr>
+            <tr>
+                <td><label for="gpu">Видео</label></td>
+                <td><input type="text" th:field="*{gpu}" id="gpu" placeholder="Видео"></td>
+            </tr>
+            <tr>
+                <td><label for="ssd">ssd</label></td>
+                <td><input type="text" th:field="*{ssd}" id="ssd" placeholder="ssd"></td>
+            </tr>
+            <tr>
+                <td><label for="hdd">Жесткий диск</label></td>
+                <td><input type="text" th:field="*{hdd}" id="hdd" placeholder="Жесткий диск"></td>
+            </tr>
+            <tr>
+                <td><label for="casePc">Корпус</label></td>
+                <td><input type="text" th:field="*{casePc}" id="casePc" placeholder="Корпус"></td>
+            </tr>
+            <tr>
+                <td><label for="power">Блок питания</label></td>
+                <td><input type="text" th:field="*{power}" id="power" placeholder="Блок питания"></td>
+            </tr>
+            <tr>
+                <td><label for="modelid">Модель</label></td>
+                <td><input type="text" name="model"  placeholder="model" id="modelid"></td>
+            </tr>
+            <tr>
+                <td><label for="codeid">Код</label></td>
+                <td><input type="text" name="code"  placeholder="code" id="codeid"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Отправить</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+<a th:href="@{comp}"></a>
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

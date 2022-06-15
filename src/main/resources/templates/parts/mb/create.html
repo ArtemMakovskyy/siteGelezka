@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>MB</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+<header th:insert="blocks/header::header"></header>
+
+<H3>Создать MB</H3><br>
+
+<form th:action="@{/comp_parts/mb/create}" th:method="post">
+    <input type="text" th:field="*{mb.name}" placeholder="name"> имя<br>
+    <div style="color:red" th:if="${#fields.hasErrors('mb.name')}" th:errors="*{mb.name}">Name Error</div>
+    <input type="text" th:field="*{mb.specification}" placeholder="specification"> спецификация<br>
+    <input type="text" th:field="*{mb.warranty}" placeholder="warranty"> гаратния<br>
+    <input type="text" th:field="*{mb.price}" placeholder="price"> цена<br>
+    <br>
+
+    <input type="text" th:field="*{code.brinePartNumber}" placeholder="brine code"> brain code<br>
+    <input type="text" th:field="*{code.gelezkaPartNumber}" placeholder="gelezka code"> gelezka code<br>
+    <input type="text" th:field="*{code.originalPartNumber}" placeholder="original coge"> original code<br>
+    <div style="color:red" th:if="${codeDuplication}" th:text="${textError}"></div>
+    <br>
+    <button type="submit" class="btn btn-info col-2">Добавить</button><br>
+</form>
+<br>
+
+<form th:method="get" th:action="@{/comp/create_pc_parts}">
+    <button type="submit" class="btn btn-primary btn-sm mb-3">Манипуляции с комплектующими</button>
+</form>
+    <form th:method="get" th:action="@{/comp_parts/mb/show}">
+        <button type="submit" class="btn btn-primary btn-sm mb-3">Список</button>
+    </form>
+<div th:insert="blocks/footer::footer"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ol>
+    <li th:text="${continents[2]}"></li>
+    <li th:text="${continents[0]}"></li>
+    <li th:text="${continents[4]}"></li>
+    <li th:text="${continents[5]}"></li>
+    <li th:text="${continents[6]}"></li>
+    <li th:text="${continents[3]}"></li>
+    <li th:text="${continents[1]}"></li>
+</ol>
+<br>
+<br>
+<br>
+<ul th:each="continet : ${continents}">
+    <li th:text="${continet}"></li>
+</ul>
+
+<br>
+<br>
+<br>
+<h4 th:each="continent : ${continents}" th:text="${continent}"></h4>
+
+<br>
+<br>
+<br>
+
+<p>The greatest <span th:text="${#arrays.length(continents)}"></span> continents.</p>
+
+<p>Europe is a continent: <span th:text="${#arrays.contains(continents, 'Europe')}"></span>.</p>
+
+<p>Array of continents is empty <span th:text="${#arrays.isEmpty(continents)}"></span>.</p>
+</body>
+</html>

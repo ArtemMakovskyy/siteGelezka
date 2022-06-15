@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Gelezka</title>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div>
+    <h2>Регистрация пользователя</h2>
+
+    <form action="#" th:action="@{/user/register}" th:method="post" th:object="${user}">
+        <table border="0">
+            <tr>
+                <th align="right"><label>Full name:</label></th>
+                <th>
+                    <input type="text" th:field="*{name}" placeholder="имя"/><br/>
+                    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+                </th>
+            </tr>
+            <tr>
+                <th align="right"><label>E-mail:</label></th>
+                <th>
+                    <input type="text" th:field="*{email}" placeholder="E-mail"/><br/>
+                    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</div>
+                </th>
+            </tr>
+            <tr>
+                <th align="right"><label>Password:</label></th>
+                <th>
+                    <input type="password" th:field="*{password}" placeholder="Password"/><br/>
+                    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password
+                        Error
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th align="right"><label>Birthday (yyyy-mm-dd):</label></th>
+                <th><input type="text" th:field="*{birthday}" placeholder="1979-01-01"/><br/>
+                    <div style="color:red" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">birthday
+                        Error
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th align="right"><label>Gender:</label></th>
+                <th><input type="radio" th:field="*{gender}" value="Male"/>Male
+                    <input type="radio" th:field="*{gender}" value="Female"/>Female<br/></th>
+            </tr>
+            <tr>
+                <th align="right"><label>Profession:</label></th>
+                <th><select th:field="*{profession}">
+                    <option th:each="p : ${listProfession}" th:value="${p}" th:text="${p}"/>
+                </select></th>
+            </tr>
+            <tr>
+                <th align="right"><label>Married?</label></th>
+                <th><input type="checkbox" th:field="*{married}"/><br/></th>
+            </tr>
+            <tr>
+                <th align="right"><label>Note:</label></th>
+                <th><textarea rows="5" cols="25" th:field="*{note}"></textarea></th>
+            </tr>
+            <tr>
+                <th align="right"><label>Salary:</label></th>
+                <th><input type="number" th:field="*{salary}"/><br>
+                    <div style="color:red" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}">salary Error
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th align="right">
+                    <button type="submit">Register</button>
+                </th>
+            </tr>
+        </table>
+    </form>
+
+</div>
+
+
+<a href="/">Главная</a>
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Variables</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<main>
+    <br> <br>
+ Есть два способа определить переменную в шаблоне Thymeleaf.
+Первый вариант — взять один элемент при переборе массива:
+    <div th:each="article : ${articles}">
+        <a th:text="${article.name}" th:href="${article.url}"></a>
+    </div>
+
+    <br> <br>
+ Другой способ — определить новую переменную на основе другой.
+Например, мы можем взять первый элемент массива статей:
+    <div th:with="firstArticle=${articles[0]}">
+        <a th:text="${firstArticle.name}" th:href="${firstArticle.url}"></a>
+    </div>
+
+    <br> <br>
+Или мы можем создать новую переменную, содержащую только название статьи:
+    <div th:each="article : ${articles}", th:with="articleName=${article.name}">
+        <a th:text="${articleName}" th:href="${article.url}"></a>
+    </div>
+
+    <br> <br>
+Также возможно определить несколько переменных.
+Например, мы можем создать две отдельные переменные для
+хранения названия статьи и URL-адреса:
+    <div th:each="article : ${articles}" th:with="articleName=${article.name}, articleUrl=${article.url}">
+        <a th:text="${articleName}" th:href="${articleUrl}"></a>
+    </div>
+</main>
+</body>
+</html>

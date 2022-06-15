@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+    <header th:insert="blocks/header::header"></header>
+
+    <div class="row col-sm-10">
+        <H3>Список Memory</H3> &nbsp
+        <a th:href="@{/comp_parts/memory/create}" class="btn btn-primary btn-sm mb-3"> Создать</a>&nbsp;
+        <a th:href="@{/comp_parts/memory/show}" class="btn btn-primary btn-sm mb-3">Показать все</a>&nbsp;
+        <form th:action="@{/comp_parts/memory/serch/page/}" method="post" class="btn btn-primary btn-sm mb-3">
+            Найти: <input type="text" name="text" placeholder="поиск по всем полям">
+            <button type="submit">Показать</button>
+        </form>
+    </div>
+
+
+    <header th:insert="blocks/parts_pagenator::parts_pagenator"></header>
+    <table class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th><span>Название</span></th>
+            <th><span>Спецификация</span></th>
+            <th><span>Цена</span></th>
+            <th><span>link</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="el:${list}">
+            <td><a th:href="@{/comp_parts/memory/detail/{position}(position=${el.id})}"><span th:text="${el.name}"/> </a>
+            </td>
+            <td th:text="${el.specification}"></td>
+            <td th:text="${el.price}"></td>
+            <!--            <td th:text="'br: ' +${el.partCode.brinePartNumber} + ' gel: ' +${el.partCode.gelezkaPartNumber} + ' orig:'+${el.partCode.originalPartNumber}"></td>-->
+            <td>
+                <a th:href="@{/comp_parts/memory/edit/{position}(position=${el.id})}"
+                   class="btn btn-primary">Редактировать</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${totalPages}>1" class="row col-sm-10">
+        <span th:each="i:${#numbers.sequence(1,totalPages)}">
+            <a th:if="${currentPage !=i}" th:href="@{'/comp_parts/memory/show/page/'+${i}}">[[${i}]]</a>
+            <span th:unless="${currentPage !=i}">[[${i}]]</span> &nbsp;&nbsp;
+        </span>
+
+        <div>
+            <a th:if="${currentPage < totalPages}" th:href="@{'/comp_parts/memory/show/page/'+${currentPage+1}}">Вперед</a>
+            <span th:unless="${currentPage < totalPages}">Вперед</span>&nbsp
+        </div>
+
+        <div>
+            <a th:if="${currentPage !=1}" th:href="@{'/comp_parts/memory/show/page/'+${currentPage-1}}">Назад</a>&nbsp
+            <!--            <span th:unless="${currentPage < totalPages}">Назад2</span>-->
+        </div>
+
+        <div class="col-sm-1">
+            <a th:if="${currentPage < totalPages}" th:href="@{'/comp_parts/memory/show/page/'+${totalPages}}">Последняя</a>&nbsp
+        </div>
+    </div>
+
+    <div>
+        Общее количество строк: [[${totalItems}]]
+    </div>
+
+
+    <form th:method="get" th:action="@{/comp/create_pc_parts}">
+        <button type="submit" class="btn btn-primary btn-sm mb-3">Манипуляции с комплектующими</button>
+    </form>
+    <form th:action="@{/comp_parts/memory/showPos}" th:method="post">
+        Задать количество отображаемых строк на странице: <input type="number" name="countRows"
+                                                                 placeholder="введите цифру">
+        <button type="submit">Изменить</button>
+    </form>
+    <div th:insert="blocks/footer::footer"></div>
+</div>
+</body>
+</html>

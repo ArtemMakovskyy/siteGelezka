@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:width="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <meta charset="UTF-8">
+    <title>Gelezka</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+    <header th:insert="blocks/header::header"></header>
+
+    <H2>Манипуляции с комплектующими</H2>
+
+
+    <table >
+        <thead>
+        <tr>
+            <th>
+                Создать позицию
+            </th>
+            <th>...</th>
+            <th>
+                Смотреть
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href="/comp_parts/fun/create"> вентилятор</a></td>
+            <th></th>
+            <td><a href="/comp_parts/fun/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/comp_parts/processor/create"> процессор </a></td>
+            <th></th>
+            <td>  <a href="/comp_parts/processor/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/comp_parts/mb/create"> материнскую плату </a></td>
+            <th></th>
+            <td><a href="/comp_parts/mb/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/comp_parts/memory/create"> память </a></td>
+            <th></th>
+            <td> <a href="/comp_parts/memory/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/comp_parts/gpu/create"> видеокарту </a></td>
+            <th></th>
+            <td> <a href="/comp_parts/gpu/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/comp_parts/hdd/create"> жесткий диск </a></td>
+            <th></th>
+            <td><a href="/comp_parts/hdd/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/comp_parts/ssd/create"> ссд </a></td>
+            <th></th>
+            <td><a href="/comp_parts/ssd/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/comp_parts/case/create"> корпус </a></td>
+            <th></th>
+            <td><a href="/comp_parts/case/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/comp_parts/power/create"> блок питания </a></td>
+            <th></th>
+            <td><a href="/comp_parts/power/show">список</a></td>
+        </tr>
+        <tr>
+            <td><a href="/update_parts"> обновить комплектующие </a></td>
+        </tr>
+        <tr>
+            <td><a href="/computer/show"> Посмотреть комплектации </a></td>
+        </tr>
+        <tr>
+            <td><a href="/computer/create"> Создать комплектацию </a></td>
+        </tr>
+        </tbody>
+
+
+        <!-- +   <a href="/comp_parts/fun">Создать вентилятор</a><a href="/comp_parts/fun"> Список вентиляторов</a><br>-->
+        <!-- +   <a href="/comp_parts/cpu">Создать процессор</a><br>-->
+        <!-- +   <a href="/comp_parts/mb">Создать материнскую плату</a><br>-->
+        <!-- +   <a href="/comp_parts/memory">Создать память</a><br>-->
+        <!-- +   <a href="/comp_parts/gpu">Создать видеокарту</a><br>-->
+        <!-- +   <a href="/comp_parts/hdd">Создать жесткий диск</a><br>-->
+        <!-- +   <a href="/comp_parts/ssd">Создать ссд</a><br>-->
+        <!-- +   <a href="/comp_parts/case">Создать корпус</a><br>-->
+        <!-- +   <a href="/comp_parts/power">Создать блок питания</a><br>-->
+    </table>
+    <br>
+    <div th:insert="blocks/footer::footer"></div>
+</div>
+</body>
+</html>

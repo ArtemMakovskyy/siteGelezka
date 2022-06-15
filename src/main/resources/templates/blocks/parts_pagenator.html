@@ -1,0 +1,36 @@
+
+<div th:fragment = "parts_pagenator">
+
+    <parts_pagenator class="text-muted py-5">
+        <div class="container">
+            <div>
+                Общее количество строк: [[${totalItems}]]
+            </div>
+
+            <div th:if="${totalPages}>1" class="row col-sm-10">
+        <span th:each="i:${#numbers.sequence(1,totalPages)}">
+            <a th:if="${currentPage !=i}" th:href="@{'/comp_parts/fun/show/page/'+${i}}">[[${i}]]</a>
+            <span th:unless="${currentPage !=i}">[[${i}]]</span> &nbsp;&nbsp;
+        </span>
+
+                <div>
+                    <a th:if="${currentPage < totalPages}" th:href="@{'/comp_parts/fun/show/page/'+${currentPage+1}}">Вперед</a>
+                    <span th:unless="${currentPage < totalPages}">Вперед</span>&nbsp
+                </div>
+
+                <div>
+                    <a th:if="${currentPage !=1}" th:href="@{'/comp_parts/fun/show/page/'+${currentPage-1}}">Назад</a>&nbsp
+                    <!--            <span th:unless="${currentPage < totalPages}">Назад2</span>-->
+                </div>
+
+                <div class="col-sm-1">
+                    <a th:if="${currentPage < totalPages}" th:href="@{'/comp_parts/fun/show/page/'+${totalPages}}">Последняя</a>&nbsp
+                </div>&nbsp;&nbsp;&nbsp;
+
+
+            </div>
+
+
+        </div>
+    </parts_pagenator>
+</div>
